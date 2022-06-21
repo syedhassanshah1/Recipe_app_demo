@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="assetsURI"
+            type="String" />
+
+        <variable
+            name="dataItem"
+            type="com.app.recipe.screens.searchRecipe.dataModels.SearchRecipeModel.Result" />
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/containerMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_130sdp"
+            android:layout_margin="@dimen/_7sdp"
+            app:cardCornerRadius="@dimen/_6sdp"
+            app:cardElevation="4dp">
+
+
+            <ImageView
+                android:id="@+id/imgRecipeImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:loadImg="@{assetsURI+dataItem.image}"
+                android:scaleType="centerCrop"
+                tools:ignore="ContentDescription" />
+
+
+            <TextView
+                android:id="@+id/txtRecipeName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:padding="@dimen/_10sdp"
+                android:text="@{dataItem.title}"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_14sdp" />
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>
